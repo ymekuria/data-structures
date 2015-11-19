@@ -24,12 +24,12 @@ var stackMethods = {
     this.stackSize++;
     var currentStack = this.stackSize;
     this[currentStack] = value;
-    console.log('value of this: ', this);
+    
    
   },
 
   size: function(){
-    console.log(this.stackSize)
+    
     return this.stackSize;
   }
 };
