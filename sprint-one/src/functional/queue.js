@@ -12,14 +12,11 @@ var Queue = function() {
     size++;
     stackSize++;
     someInstance[stackSize] = value;
-    console.log('someInstance inside enqueue:', someInstance)
   };
 
   someInstance.dequeue = function() {
     var poppedValue = someInstance[firstValue];
-    console.log("someInstance[firstValue]", someInstance[firstValue])
-    console.log("first value: ", firstValue)
-     console.log("poppedValue: ",poppedValue);
+   
 
 
     size --;
