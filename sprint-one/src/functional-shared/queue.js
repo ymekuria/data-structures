@@ -15,7 +15,7 @@ var queueMethods = {
   enqueue : function(value){
    
     this.stackIndex++;
-   console.log('this inside enque before :',this)
+
    this[this.stackIndex] = value;
    this.stackSize++;
    
@@ -29,7 +29,7 @@ var queueMethods = {
    delete this[this.firstValue]; 
    this.firstValue++;
 
-   //this.stackSize > 0 ? this.stackSize-- : 0;
+  
    if(this.stackSize > 0){
     this.stackSize--;
    } else{
