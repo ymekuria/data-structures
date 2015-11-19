@@ -1,8 +1,8 @@
 var Queue = function() {
   var queue = {
-    ourSize : 0,
-    stackSize : 0,
-    firstValue : 1
+    firstValue: 1,
+    stackSize: 0,
+    stackIndex: 0
   }
 
     _.extend(queue, queueMethods);
@@ -13,23 +13,33 @@ var Queue = function() {
 
 var queueMethods = {
   enqueue : function(value){
-    this.ourSize++
-    this.stackSize++;
-    this[this.stackSize] = value; 
+   
+    this.stackIndex++;
+   console.log('this inside enque before :',this)
+   this[this.stackIndex] = value;
+   this.stackSize++;
+   
   },
   dequeue : function(){
-   
-    var poppedValue = this[this.firstValue];
-    this.ourSize--;
-    this[this.stackSize] = this.stackSize > 0 ? this.stackSize-- : 0;
-  
-    this.firstValue++;
-    // console.log("this: ", firstValue,"this")
+    //debugger;
+    if(this.stackSize === 0 ){
+      return 'array is empty'
+    }
+   var poppedValue = this[this.firstValue];
+   delete this[this.firstValue]; 
+   this.firstValue++;
 
-    return poppedValue;
+   //this.stackSize > 0 ? this.stackSize-- : 0;
+   if(this.stackSize > 0){
+    this.stackSize--;
+   } else{
+    this.stackSize = 0;
+   }
+  // debugger;
+   return poppedValue;
   },
   size : function(){ 
-    return this.ourSize >= 0 ? this.ourSize : 0;
+   return this.stackSize; 
   }
 };
 
