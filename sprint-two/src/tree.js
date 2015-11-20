@@ -6,27 +6,42 @@ var Tree = function(value) {
   newTree.children = [];  // fix me
   _.extend(newTree,treeMethods);
   return newTree;
+
 };
 
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  var childNode = {};
+  var childNode = {
+    children : []
+  };
+  _.extend(childNode, treeMethods);
   childNode['value'] = value;
   this.children.push(childNode);
+  
+
 };
 
 treeMethods.contains = function(target) {
 
 // console.log('this.children in contains:', this.children);
 var containsTarget = false;
+console.log("childNode:", this.children);
   _.each(this.children, function(childObject){
-    console.log('childObject["value"] in each:', childObject['value'], target);
     if(childObject['value'] === target){
       containsTarget = true;
     }
-
   })
+
+   _.each(this.children, function(childObject){
+    _.each(childObject.children, function(nestedChildObject){
+      if(nestedChildObject['value'] === target){
+        containsTarget = true;
+      }
+    })  
+  })
+
+
 return containsTarget;
 };
 
