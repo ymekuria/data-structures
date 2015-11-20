@@ -18,7 +18,7 @@ Queue.prototype.dequeue = function(){
   var poppedValue = this[this.firstValue];
   delete this[this.firstValue];
  // this.stackIndex++;
-  p;lujuithis.firstValue++;
+  this.firstValue++;
   this.stackSize > 0 ? this.stackSize-- : 0; 
   // if(this.stackSize === 0) {
   //   this.firstValue = 1;
