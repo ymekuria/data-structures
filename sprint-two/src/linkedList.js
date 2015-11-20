@@ -37,12 +37,12 @@ var LinkedList = function() {
       if(ourList[key] === target) {
         console.log('we are inside the if', true)
         return true;
-      } else{
-        return false;
-      }
-      debugger;
+      } 
+        
+      
+      
     }
-
+  return false;
   };
 
   return list;
