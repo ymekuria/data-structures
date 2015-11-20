@@ -15,7 +15,7 @@ var LinkedList = function() {
     
      ourList[ourListIndex] = value;
      ourListIndex++;
-     console.log('ourListIndex:',ourListIndex, 'ourList inside addToTail:', ourList,'value:',value)
+     
      this.tail = tailObject;
 
   };
@@ -31,11 +31,11 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    console.log('ourList inside of contains:', ourList, 'target:',target);
+    
     
     for(var key in ourList){
       if(ourList[key] === target) {
-        console.log('we are inside the if', true)
+       
         return true;
       } 
         
