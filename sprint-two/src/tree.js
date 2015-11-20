@@ -26,7 +26,7 @@ treeMethods.contains = function(target) {
 
 // console.log('this.children in contains:', this.children);
 var containsTarget = false;
-console.log("childNode:", this.children);
+
   _.each(this.children, function(childObject){
     if(childObject['value'] === target){
       containsTarget = true;

@@ -3,21 +3,37 @@
 // ------------------------
 // Instantiate a new graph
 var Graph = function() {
+this.nodeArray = [];
 };
 
 // ------------------------
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
+  this.nodeArray.push(node);
+ 
+  //console.log(graph);
+
 };
 
 // ------------------------
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
+  console.log("nodeArray in contains:", _.indexOf(this.nodeArray, node));
+  if (_.indexOf(this.nodeArray, node) !== -1){
+    console.log('inside if')
+    return true;
+  }else{
+    return false;
+  }
+
+
 };
 
 // ------------------------
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
+  var removeIndex = _.indexOf(this.nodeArray, node);
+  this.nodeArray.splice(removeIndex, 1);
 };
 
 // ------------------------
@@ -43,5 +59,8 @@ Graph.prototype.forEachNode = function(cb) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+var graph = new Graph(); 
+
 
 
