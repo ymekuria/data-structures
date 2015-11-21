@@ -12,16 +12,16 @@ this.edges = {};
 Graph.prototype.addNode = function(node) {
   this.nodeArray.push(node);
  
-  //console.log(graph);
+  // console.log(graph);
 
 };
 
 // ------------------------
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
-  console.log("nodeArray in contains:", _.indexOf(this.nodeArray, node));
+  // console.log("nodeArray in contains:", _.indexOf(this.nodeArray, node));
   if (_.indexOf(this.nodeArray, node) !== -1){
-    console.log('inside if')
+    // console.log('inside if')
     return true;
   }else{
   
@@ -42,8 +42,8 @@ Graph.prototype.removeNode = function(node) {
 Graph.prototype.hasEdge = function(fromNode, toNode) {
   var edgeString = JSON.stringify(fromNode) + "," + JSON.stringify(toNode);
   var reverseEdgeString = JSON.stringify(toNode) + "," + JSON.stringify(fromNode);
-  console.log("reverseString : " ,reverseEdgeString);
-  console.log("fromNode :", fromNode, "toNode : ", toNode)
+  // console.log("reverseString : " ,reverseEdgeString);
+  // console.log("fromNode :", fromNode, "toNode : ", toNode)
 // this.edges.hasOwnProperty(edgeString) === true//
   if(this.edges[edgeString] === reverseEdgeString || this.edges[reverseEdgeString] === edgeString ){
     return true;

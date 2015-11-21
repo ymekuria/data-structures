@@ -10,18 +10,19 @@
 // Usage:
 //   limitedArray.set(3, 'hi');
 //   limitedArray.get(3); // returns 'hi'
+var LimitedArray = function (limit) {
 
-var LimitedArray = function(limit) {
   var storage = [];
 
   var limitedArray = {};
-  limitedArray.get = function(index) {
+  limitedArray.get = function (index) {
     checkLimit(index);
     return storage[index];
   };
   limitedArray.set = function(index, value) {
     checkLimit(index);
     storage[index] = value;
+
   };
   limitedArray.each = function(callback) {
     for (var i = 0; i < storage.length; i++) {
