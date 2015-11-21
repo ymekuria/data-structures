@@ -18,13 +18,23 @@ HashTable.prototype.insert = function(k, v) {
         arrayOfTuples[i] = [k,v];
       } 
 
-  };
-    arrayOfTuples.push([k,v]);  
-  console.log('arrayOfTuples:', arrayOfTuples);
+  }
+ // console.log('arrayOfTuples:', arrayOfTuples);
 
-
-  
-  
+ // arrayOfTuples.push([k,v])
+  var isContained = false;
+  for (var j = 0; j < arrayOfTuples.length; j++){
+    
+    if(arrayOfTuples[j][0] === k ){
+      console.log('isTrue')
+      isContained = true;
+        //  console.log('isContained:',isContained);
+    }  
+  }
+     
+  if(!isContained){ 
+      arrayOfTuples.push([k,v]);  
+  }     
 };
 
 HashTable.prototype.retrieve = function(k) {
@@ -46,8 +56,10 @@ HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
 
   this._storage.each(function(indexArr,index,nestedArray){
-    if(indexArr && indexArr[0] === k){
-      nestedArray.splice(index,1);
+    console.log("indexArr :", indexArr,"index", index, "nestedArray", nestedArray)
+    if(indexArr && indexArr[0][0] === k){
+      console.log("hello")
+      indexArr[0] = [];
     }
   
   })
