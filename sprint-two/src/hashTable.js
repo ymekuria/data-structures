@@ -26,7 +26,8 @@ HashTable.prototype.insert = function(k, v) {
   for (var j = 0; j < arrayOfTuples.length; j++){
     
     if(arrayOfTuples[j][0] === k ){
-      console.log('isTrue')
+    
+
       isContained = true;
         //  console.log('isContained:',isContained);
     }  
@@ -56,9 +57,9 @@ HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
 
   this._storage.each(function(indexArr,index,nestedArray){
-    console.log("indexArr :", indexArr,"index", index, "nestedArray", nestedArray)
+
     if(indexArr && indexArr[0][0] === k){
-      console.log("hello")
+ 
       indexArr[0] = [];
     }
   
