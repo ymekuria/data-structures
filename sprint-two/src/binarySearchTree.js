@@ -33,24 +33,40 @@ BinarySearchTree.insert = function(value) {
 };
 
 BinarySearchTree.contains = function(value) {
-debugger;
+
  if (this.value === value){ 
   return true;
  };
 
- if (this.left !== null){
-  var leftObject = this.left;
-  leftObject.contains(value);
- }else if(this.right !== null){
+ if (this.right !== null){
   var rightObject = this.right;
-  rightObject.contains(value);
+  return rightObject.contains(value);
+ }
+
+
+ else if(this.left !== null){
+  var leftObject = this.left;
+  return leftObject.contains(value);
  }else{
   return false;
  }
 };
 
-BinarySearchTree.depthFirstLog = function(first_argument) {
-  // body...
+BinarySearchTree.depthFirstLog = function(callback) {
+   callback(this.value);
+
+ if (this.right !== null){
+  var rightObject = this.right;
+  return rightObject.depthFirstLog(callback);
+ }
+
+
+ else if(this.left !== null){
+  var leftObject = this.left;
+  return leftObject.depthFirstLog(callback);
+ }else{
+  return;
+ }
 };
 
 binarySearchTree = BinarySearchTree(5);
