@@ -32,8 +32,21 @@ BinarySearchTree.insert = function(value) {
   }
 };
 
-BinarySearchTree.contains = function(first_argument) {
-  // body...
+BinarySearchTree.contains = function(value) {
+debugger;
+ if (this.value === value){ 
+  return true;
+ };
+
+ if (this.left !== null){
+  var leftObject = this.left;
+  leftObject.contains(value);
+ }else if(this.right !== null){
+  var rightObject = this.right;
+  rightObject.contains(value);
+ }else{
+  return false;
+ }
 };
 
 BinarySearchTree.depthFirstLog = function(first_argument) {
